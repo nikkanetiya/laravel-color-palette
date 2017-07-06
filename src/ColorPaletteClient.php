@@ -1,6 +1,6 @@
 <?php
 
-namespace NikKanetiya\LaravelColorPalette;
+namespace  NikKanetiya\LaravelColorPalette;
 
 use ColorThief\ColorThief;
 
@@ -27,11 +27,11 @@ class ColorPaletteClient
      *                                  $area['w']: The width of the area. Default to image width minus x-coordinate.
      *                                  $area['h']: The height of the area. Default to image height minus y-coordinate.
      *
-     * @return array|bool
+     * @return Color
      */
-    public function getColor($sourceImage, $quality = 10, array $area = null)
+    public function getColor($sourceImage, $quality = 10, $area = null)
     {
-        return ColorThief::getColor($sourceImage, $quality, $area);
+        return new Color(ColorThief::getColor($sourceImage, $quality, $area));
     }
 
     /**
@@ -44,10 +44,18 @@ class ColorPaletteClient
      * @param int        $quality       1 is the highest quality.
      * @param array|null $area[x,y,w,h]
      *
-     * @return array
+     * @return array[Color]
      */
-    public function getPalette($sourceImage, $colorCount = 10, $quality = 10, array $area = null)
+    public function getPalette($fileOrUrl, $colorCount = 10, $quality = 10, $area = null)
     {
-        return ColorThief::getPalette($sourceImage, $colorCount, $quality, $area);
+        $palette = ColorThief::getPalette($fileOrUrl, $colorCount, $quality, $area);
+
+        if(!$palette) return $palette;
+
+        foreach ($palette as $color) {
+            $data[] = new Color($color);
+        }
+
+        return $data;
     }
-} 
+}
