@@ -46,9 +46,9 @@ class ColorPaletteClient
      *
      * @return array[Color]
      */
-    public function getPalette($fileOrUrl, $colorCount = 10, $quality = 10, $area = null)
+    public function getPalette($sourceImage, $colorCount = 10, $quality = 10, $area = null)
     {
-        $palette = ColorThief::getPalette($fileOrUrl, $colorCount, $quality, $area);
+        $palette = ColorThief::getPalette($sourceImage, $colorCount, $quality, $area);
 
         if(!$palette) return $palette;
 
