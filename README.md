@@ -12,8 +12,10 @@ This Laravel package is extremely useful to grab **dominant color** or a **repre
 	
 ## Installation
 
-You can install the package via composer:
-[Not available for now]
+You can install the package via [Composer](http://getcomposer.org):
+```bash
+composer require nikkanetiya/laravel-color-palette
+```
 
 You must install the service provider:
 
