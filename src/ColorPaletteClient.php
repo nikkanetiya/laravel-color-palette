@@ -52,10 +52,8 @@ class ColorPaletteClient
 
         if(!$palette) return $palette;
 
-        foreach ($palette as $color) {
-            $data[] = new Color($color);
-        }
-
-        return $data;
+        return array_map(function ($value) {
+            return new Color($value);
+        }, $palette);
     }
 }
