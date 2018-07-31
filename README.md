@@ -17,7 +17,7 @@ You can install the package via [Composer](http://getcomposer.org):
 composer require nikkanetiya/laravel-color-palette
 ```
 
-You must install the service provider:
+You must install the service provider (For Laravel < 5.5):
 
 ```php
 // config/app.php

@@ -21,5 +21,15 @@
         "psr-4": {
             "NikKanetiya\\LaravelColorPalette\\": "src"
         }
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "NikKanetiya\\LaravelColorPalette\\ColorPaletteServiceProvider"
+            ],
+            "aliases": {
+                "ColorPalette": "NikKanetiya\\LaravelColorPalette\\ColorPaletteFacade"
+            }
+        }
     }
 }
